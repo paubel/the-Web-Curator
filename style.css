@@ -1,0 +1,152 @@
+/*START Colors*/
+/* https://material.io/resources/color/#!/?view.left=1&view.right=1&primary.color=288728&secondary.color=278282
+*/
+:root {
+  /* Creating a variable */
+  --prim: #288728;
+  --prim-light: #5eb855;
+  --prim-dark: #005900;
+  --sec: #278282;
+  --sec-light: #5db2b1;
+  --sec-dark: #005556;
+  /* Variables can have any value allowed in CSS */
+  --border: 0.1rem silver solid;
+  --border-quot: 0.3rem var(--prim-dark) solid;
+  /* Variable nesting is possible */
+  --family: Georgia, serif;
+  --variant: small-caps;
+  --size: 1.2rem;
+  --font: var(--variant) var(--size) / 1.2 var(--family);
+}
+
+/* Using a variable */
+.box-temp {
+  background: var(--prim-light);
+  border: var(--border-quot);
+  /* further nesting possible */
+  font: italic var(--font);
+}
+
+/*END Colors*/
+/*START main CSS*/
+* {
+  box-sizing: border-box;
+}
+
+header {
+  border: var(--border);
+  grid-area: h;
+  padding: 0.4rem;
+}
+
+header p {
+  display: inline;
+}
+
+#prim {
+  background: var(--prim);
+  color: white;
+}
+
+#prim-l {
+  background: var(--prim-light);
+}
+
+#prim-d {
+  background: var(--prim-dark);
+  color: white;
+}
+
+#sec {
+  background: var(--sec);
+  color: white;
+}
+
+#sec-l {
+  background: var(--sec-light);
+}
+
+#sec-d {
+  background: var(--sec-dark);
+  color: white;
+}
+
+nav {
+  border: var(--border);
+  padding: 0.4rem;
+  grid-area: n;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+main {
+  border: var(--border);
+  padding: 0.4rem;
+  grid-area: m;
+}
+
+aside {
+  border: var(--border);
+  padding: 0.4rem;
+  grid-area: a;
+}
+
+footer {
+  border: var(--border);
+  padding: 0.4rem;
+  grid-area: f;
+}
+
+p {
+  color: black;
+}
+
+nav a {
+  background-color: var(--prim);
+  box-shadow: 0 5px 0 var(--prim-dark);
+  color: white;
+  padding: 0.3rem 1rem;
+  position: relative;
+  text-decoration: none;
+  margin-right: 0.4rem;
+}
+
+nav a:hover {
+  background-color: var(--prim-light);
+  color: black;
+  cursor: pointer;
+}
+
+nav a:active {
+  box-shadow: none;
+  top: 5px;
+}
+
+/*END main CSS*/
+/*START layout CSS*/
+body {
+  font-family: system-ui;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "h h "
+    "n n"
+    "m m"
+    "a a"
+    "f f";
+}
+
+@media only screen and (min-width: 600px) {
+  body {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "h h"
+      "n n"
+      "m a"
+      "f f";
+  }
+}
+
+/*END layout CSS*/
+/*  */
